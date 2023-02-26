@@ -62,7 +62,7 @@ const Home = () => {
             {workHistory.map(({title, company, url, duration, bulletPoints}, jobIndex) => (
               <div key={jobIndex}>
                 <h2 style={{display: "inline-block"}}>{`${title} @ `}</h2>
-                <a href={url} target="_blank" style={{display: "inline-block"}}>{company}</a>
+                <a href={url} target="_blank" rel="noreferrer" style={{display: "inline-block"}}>{company}</a>
                 <p>{duration}</p>
                 {bulletPoints.map((item, i) => (
                   <p key={i}>{`- ${item}`}</p>
