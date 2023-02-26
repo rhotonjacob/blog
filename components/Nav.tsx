@@ -11,7 +11,7 @@ const Nav = () => {
         <Link href="#work">Work</Link>
         <Link href="#portfolio">Portfolio</Link>
         <Link href="#contact">Contact</Link>
-        <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</Link>
+        <Link href="/resume.pdf" target="_blank" rel="noreferrer">Resume</Link>
       </HStack>
     </Flex>
   )
