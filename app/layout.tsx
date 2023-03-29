@@ -1,4 +1,7 @@
-export const metadata = {
+import type { Metadata } from "next";
+import Nav from "components/Nav";
+
+export const metadata: Metadata = {
   title: "Jacob Rhoton",
   description: "I'm a software engineer from Denver, Colorado and this is my humble portfolio site.",
   icons: {
@@ -15,6 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Nav />
       <body>{children}</body>
     </html>
   );
