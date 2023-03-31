@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import Nav from "components/Nav";
 
+import "styles/reset.css";
+
 export const metadata: Metadata = {
   title: "Jacob Rhoton",
-  description: "I'm a software engineer from Denver, Colorado and this is my humble portfolio site.",
+  description:
+    "I'm a software engineer from Denver, Colorado and this is my humble portfolio site.",
   icons: {
-    icon: "/favicon.ico"
-  }
-}
+    icon: "/favicon.ico",
+  },
+};
 
 export default function RootLayout({
   // Layouts must accept a children prop.
