@@ -2,52 +2,26 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import styled from "styled-components";
-
-const Navbar = styled.div`
-  position: fixed;
-  top: 0;
-  width: 100%;
-`;
-
-const Logo = styled.div`
-  width: 40px;
-  height: 40px;
-  background-color: black;
-`;
-
-const RoutesContainer = styled.div`
-  display: flex;
-  gap: 1rem;
-`;
-
-const NavItems = styled.div`
-  display: flex;
-  padding: 1rem;
-  justify-content: space-between;
-  align-items: center;
-  // background-color: #f9f9f9;
-  background-color: red;
-`;
+import style from "./Nav.module.css";
 
 const Nav = () => {
   const path = usePathname().slice(1);
 
   return (
-    <Navbar>
-      <NavItems>
+    <div className={style.navContainer}>
+      <div className={style.nav}>
         <Link href="/">
-          <Logo />
+          <div className={style.logo} />
         </Link>
-        <RoutesContainer>
+        <div className={style.navItems}>
           <Link href="/about">About</Link>
           <Link href="/portfolio">Portfolio</Link>
           <Link href="/blog">Blog</Link>
           <Link href="/contact">Contact</Link>
           {/* <Link href="/resume.pdf" target="_blank">Resume</Link> */}
-        </RoutesContainer>
-      </NavItems>
-    </Navbar>
+        </div>
+      </div>
+    </div>
   );
 };
 
