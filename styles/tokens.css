@@ -1,0 +1,20 @@
+:root {
+  --font-broadacre: broadacre-hairline-4, sans-serif; /* 100 */
+  --font-body: neue-kabel, sans-serif; /* 200, 400, 600 */
+
+  --color-gray: #f1efed;
+  --color-black: #151515;
+  --color-red: #dd1126;
+  --color-yellow: #e5a100;
+  --color-teal: #00a4a9;
+  --color-blue: #0084c2;
+
+  --font-size-sm: 1rem;
+  --font-size-md: 1.5rem;
+  --font-size-lg: 4.5rem;
+  --font-size-xl: 6rem;
+
+  --size-header: 6rem;
+  --space-sm: 1rem;
+  --space-lg: 2rem;
+}

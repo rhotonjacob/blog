@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
-import Nav from "components/Nav";
+import Header from "components/Header";
 
+import "styles/tokens.css";
 import "styles/reset.css";
+import "styles/globals.css";
+
+import style from "./layout.module.css";
 
 export const metadata: Metadata = {
   title: "Jacob Rhoton",
@@ -13,16 +17,20 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  // Layouts must accept a children prop.
-  // This will be populated with nested layouts or pages
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <Nav />
-      <body>{children}</body>
+      <head>
+        <link rel="stylesheet" href="https://use.typekit.net/rpt0qay.css" />
+      </head>
+      <body>
+        <Header />
+        <main>{children}</main>
+        <footer className={style.footer}></footer>
+      </body>
     </html>
   );
 }
