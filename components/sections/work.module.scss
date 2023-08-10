@@ -1,0 +1,109 @@
+@import "styles/variables.scss";
+
+$tab-count: 2;
+$tab-height: 4rem;
+
+.work {
+  padding: $size-header 1rem 1rem;
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.wrapper {
+  width: 700px;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  position: relative;
+
+  input {
+    display: none;
+
+    @for $i from 1 through $tab-count {
+      &:nth-of-type(#{$i}):checked {
+        // active label
+        ~ .tabsContainer > label:nth-child(#{$i}) {
+          background: $color-aqua;
+          color: $color-sunshine;
+        }
+
+        // active tab indicator
+        ~ .indicator {
+          transform: translateY(#{($i - 1) * $tab-height});
+        }
+
+        // active content
+        ~ .contentContainer > .content:nth-child(#{$i}) {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.tabsContainer {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    display: block;
+    height: $tab-height;
+    padding: 1rem;
+    cursor: pointer;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: $color-aqua;
+    }
+  }
+}
+
+.indicator {
+  height: 4rem;
+  width: 0.5rem;
+  background: $color-sunshine;
+  z-index: 10;
+  position: absolute;
+  transition: 0.25s ease;
+  transition-delay: 0.1s;
+}
+
+.contentContainer {
+  background: $color-black;
+  height: 500px;
+  padding: 1rem;
+
+  .content {
+    display: none;
+    animation: fadeIn 500ms;
+
+    h3 {
+      font-size: 1.5rem;
+
+      .company {
+        color: $color-sunshine;
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .work {
+    padding: $size-header 2rem 2rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}

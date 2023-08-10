@@ -1,4 +1,4 @@
-import style from "./contact.module.css";
+import style from "./contact.module.scss";
 
 const pageContent = {
   heading: "Let's connect!",

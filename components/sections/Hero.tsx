@@ -1,4 +1,4 @@
-import style from "./hero.module.css";
+import style from "./hero.module.scss";
 
 const pageContent = {
   heading: "Welcome!",

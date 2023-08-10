@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Header from "components/Header";
 
-import "styles/tokens.css";
 import "styles/reset.css";
-import "styles/globals.css";
+import "styles/globals.scss";
 
 import style from "./layout.module.css";
 
