@@ -1,0 +1,62 @@
+@import "styles/variables.scss";
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 1rem;
+  z-index: 10;
+  background: transparent;
+
+  .maxWidth {
+    height: $header-footer-height;
+    max-width: $max-content-width;
+    margin: 0 auto;
+    padding: 1rem 0;
+    border-top: 2px solid $color-white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    p {
+      font-size: $body-size-sm;
+    }
+  }
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  a {
+    // &:hover,
+    // &:focus {
+    //   transform: translateY(-3px);
+    // }
+
+    svg {
+      height: 40px;
+      width: 40px;
+      color: $color-white;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-sm) {
+  .footer {
+    padding: 0 1.5rem;
+
+    .maxWidth {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-md) {
+  .footer {
+    padding: 0 2rem;
+  }
+}

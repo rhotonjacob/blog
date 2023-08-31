@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Header from "components/Header";
+import Footer from "components/Footer";
 
 import "styles/reset.css";
 import "styles/globals.scss";
-
-import style from "./layout.module.css";
 
 export const metadata: Metadata = {
   title: "Jacob Rhoton",
@@ -25,10 +24,10 @@ export default function RootLayout({
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/rpt0qay.css" />
       </head>
-      <body>
+      <body style={{ position: "relative" }}>
         <Header />
         <main>{children}</main>
-        <footer className={style.footer}></footer>
+        <Footer />
       </body>
     </html>
   );

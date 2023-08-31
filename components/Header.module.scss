@@ -1,41 +1,35 @@
 @import "styles/variables.scss";
 
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: $space-sm $space-lg;
-  height: $size-header;
+  padding: 0 1rem;
   z-index: 10;
-  background-color: $color-lavender;
-}
+  background: transparent;
 
-.nav {
-  display: none;
-}
-
-.navLinks {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: $space-sm;
-}
-
-.navLinks li {
-  display: list-item;
-}
-
-.navLinks a {
-  text-decoration: none;
-}
-
-@media (min-width: 481px) {
-  .nav {
+  .maxWidth {
+    height: $header-footer-height;
+    max-width: $max-content-width;
+    margin: 0 auto;
+    border-bottom: 2px solid $color-white;
     display: flex;
+    align-items: center;
+
+    p {
+      font-size: $heading-size-xs;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-sm) {
+  .header {
+    padding: 0 1.5rem;
+  }
+}
+
+@media screen and (min-width: $breakpoint-md) {
+  .header {
+    padding: 0 2rem;
   }
 }

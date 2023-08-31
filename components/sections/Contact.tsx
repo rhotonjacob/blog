@@ -1,20 +1,25 @@
 import style from "./contact.module.scss";
 
-const pageContent = {
-  heading: "Let's connect!",
-  text: [
-    "I'm currently looking for new opportunities!",
-    "Whether you already have a project in mind, or you'd just like to say hello, my inbox is always open.",
-  ],
-};
-
 const Contact = () => {
   return (
     <section id="contact" className={style.contact}>
-      <h1>{pageContent.heading}</h1>
-      <p>{pageContent.text[0]}</p>
-      <p>{pageContent.text[1]}</p>
-      {/* <a href="/">Contact Me</a> */}
+      <div className={style.maxWidth}>
+        <h2>Let&apos;s Connect</h2>
+        <div className={style.content}>
+          <p>I&apos;m currently looking for opportunities!</p>
+          <p>
+            Whether you already have a project in mind, or you&apos;d just like
+            to say hello, my inbox is always open.
+          </p>
+          <a
+            href="mailto:rhoton.jacob@gmail.com"
+            target="_blank"
+            className={style.emailLink}
+          >
+            Say Hello!
+          </a>
+        </div>
+      </div>
     </section>
   );
 };

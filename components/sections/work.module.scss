@@ -1,99 +1,208 @@
 @import "styles/variables.scss";
+@import "styles/mixins.scss";
 
 $tab-count: 2;
-$tab-height: 4rem;
+$tab-height: 4.5rem;
+$tab-border-radius: calc($tab-height / 2);
+$tab-width: 12.5rem;
 
 .work {
-  padding: $size-header 1rem 1rem;
-  height: 50vh;
+  padding: $heading-size-sm 1rem 1rem;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+
+  .maxWidth {
+    max-width: $max-content-width;
+    margin: 0 auto;
+
+    h2 {
+      text-align: center;
+      font-size: $heading-size-sm;
+      margin-bottom: $heading-size-sm;
+    }
+  }
 }
 
 .wrapper {
-  width: 700px;
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  position: relative;
+  width: 100%;
 
-  input {
+  input,
+  .indicator,
+  .tabsContainer {
     display: none;
-
-    @for $i from 1 through $tab-count {
-      &:nth-of-type(#{$i}):checked {
-        // active label
-        ~ .tabsContainer > label:nth-child(#{$i}) {
-          background: $color-aqua;
-          color: $color-sunshine;
-        }
-
-        // active tab indicator
-        ~ .indicator {
-          transform: translateY(#{($i - 1) * $tab-height});
-        }
-
-        // active content
-        ~ .contentContainer > .content:nth-child(#{$i}) {
-          display: block;
-        }
-      }
-    }
   }
-}
-
-.tabsContainer {
-  display: flex;
-  flex-direction: column;
-
-  label {
-    display: block;
-    height: $tab-height;
-    padding: 1rem;
-    cursor: pointer;
-
-    &:hover,
-    &:focus,
-    &:active {
-      background: $color-aqua;
-    }
-  }
-}
-
-.indicator {
-  height: 4rem;
-  width: 0.5rem;
-  background: $color-sunshine;
-  z-index: 10;
-  position: absolute;
-  transition: 0.25s ease;
-  transition-delay: 0.1s;
 }
 
 .contentContainer {
-  background: $color-black;
-  height: 500px;
-  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
   .content {
-    display: none;
-    animation: fadeIn 500ms;
+    padding: 1rem;
+    background: $color-grape;
+    border-radius: 0.5rem;
+    line-height: 1.25;
 
-    h3 {
-      font-size: 1.5rem;
+    .role {
+      color: $color-barbie;
+      font-size: $heading-size-xs;
+      font-weight: 600;
 
-      .company {
-        color: $color-sunshine;
+      h3 {
+        display: block;
+        color: $color-citrus;
+      }
+
+      .at {
+        display: none;
+      }
+
+      a {
+        @include inline-link;
+      }
+    }
+
+    .range {
+      font-size: $body-size-sm;
+    }
+
+    ul {
+      font-size: $body-size-md;
+
+      li {
+        position: relative;
+        padding-left: 2rem;
+        margin-bottom: 0.25rem;
+
+        &:before {
+          content: "✧";
+          position: absolute;
+          left: 0;
+          color: $color-citrus;
+        }
       }
     }
   }
 }
 
-@media (min-width: 769px) {
+@media screen and (min-width: $breakpoint-sm) {
   .work {
-    padding: $size-header 2rem 2rem;
+    padding: $heading-size-md 1.5rem 1.5rem;
+
+    .maxWidth h2 {
+      font-size: $heading-size-md;
+      margin-bottom: $heading-size-md;
+    }
+  }
+
+  .wrapper {
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+
+  .contentContainer {
+    gap: 1.5rem;
+
+    .content {
+      padding: 1.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-md) {
+  .work {
+    padding: $heading-size-lg 2rem 2rem;
+
+    .maxWidth h2 {
+      font-size: $heading-size-lg;
+      margin-bottom: $heading-size-lg;
+    }
+  }
+
+  .wrapper {
+    max-width: 52.5rem;
+    display: grid;
+    grid-template-columns: $tab-width 1fr;
+    position: relative;
+    background: $color-grape;
+    border-radius: $tab-border-radius;
+
+    input {
+      @for $i from 1 through $tab-count {
+        &:nth-of-type(#{$i}):checked {
+          // active label
+          ~ .tabsContainer > label:nth-child(#{$i}) {
+            color: $color-citrus;
+          }
+
+          // active tab indicator
+          ~ .indicator {
+            transform: translateY(#{($i - 1) * $tab-height});
+          }
+
+          // active content
+          ~ .contentContainer > .content:nth-child(#{$i}) {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .indicator {
+      display: block;
+      position: absolute;
+      height: $tab-height;
+      width: $tab-width;
+      background: $color-rose;
+      border-radius: $tab-border-radius 0 0 $tab-border-radius;
+      transition: 0.25s ease;
+      transition-delay: 0.1s;
+    }
+
+    .tabsContainer {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: $tab-height;
+        cursor: pointer;
+        position: relative;
+        font-size: $body-size-md;
+        font-weight: 600;
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: $color-citrus;
+        }
+      }
+    }
+  }
+
+  .contentContainer {
+    display: block;
+    height: 18rem;
+    border-left: 4px solid $color-indigo;
+
+    .content {
+      display: none;
+      animation: fadeIn 500ms;
+      background: transparent;
+      border-radius: 0;
+
+      .role {
+        h3 {
+          display: inline-block;
+        }
+
+        .at {
+          display: inline-block;
+        }
+      }
+    }
   }
 }
 
