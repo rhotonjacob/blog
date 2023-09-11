@@ -1,17 +1,18 @@
 @import "styles/variables.scss";
+@import "styles/mixins.scss";
 
 $sawtooth: 1.5rem;
 
 .contact {
-  padding: calc($heading-size-sm + $sawtooth) 1rem $header-footer-height;
+  padding: calc($heading-size-xs + $sawtooth) 1rem $header-footer-height;
   width: 100%;
-  background: $color-rose;
+  background: $color-midnight;
   position: relative;
 
   &:before {
     content: "";
-    background: linear-gradient(30deg, $color-rose 1rem, transparent 0),
-      linear-gradient(-30deg, $color-rose 1rem, $color-indigo 0);
+    background: linear-gradient(30deg, $color-midnight 1rem, transparent 0),
+      linear-gradient(-30deg, $color-midnight 1rem, $color-navy 0);
     background-position: bottom;
     background-repeat: repeat-x;
     background-size: 2rem 2rem;
@@ -26,84 +27,71 @@ $sawtooth: 1.5rem;
     max-width: $max-content-width;
     margin: 0 auto;
 
-    h2 {
-      text-align: center;
+    h1 {
+      @include text-gradient;
       font-size: $heading-size-sm;
-      margin-bottom: $heading-size-sm;
-      white-space: nowrap;
+      margin: 0 auto $heading-size-xs;
     }
   }
 }
 
 .content {
+  line-height: 1.25;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  align-items: center;
+  text-align: center;
 
-  p {
+  .emailLink {
+    display: block;
+    text-decoration: none;
     font-size: $body-size-md;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: $color-white;
+    background: $color-orange;
+    border-radius: 100px;
+    width: max-content;
+    padding: 0.5rem 1rem;
+    margin: $heading-size-xs 0;
+
+    // &:hover,
+    // &:focus {}
   }
-}
-
-.emailLink {
-  text-decoration: none;
-  font-size: $body-size-md;
-  color: $color-white;
-  border: 2px solid $color-white;
-  border-radius: 10px;
-  width: max-content;
-  padding: 1rem;
-
-  // &:hover,
-  // &:focus {}
 }
 
 @media screen and (min-width: $breakpoint-sm) {
   .contact {
-    padding: calc($heading-size-md + $sawtooth) 1.5rem $header-footer-height;
+    padding: calc($heading-size-sm + $sawtooth) 1.5rem $header-footer-height;
 
-    .maxWidth h2 {
+    .maxWidth h1 {
       font-size: $heading-size-md;
-      margin-bottom: $heading-size-md;
-    }
-  }
-
-  .content {
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-
-    p {
-      text-align: center;
+      margin-bottom: $heading-size-sm;
     }
   }
 
   .emailLink {
-    margin: 0 auto;
+    margin: $heading-size-sm auto;
   }
 }
 
 @media screen and (min-width: $breakpoint-md) {
   .contact {
-    padding: calc($heading-size-lg + $sawtooth) 2rem $header-footer-height;
+    padding: calc($heading-size-md + $sawtooth) 2rem $header-footer-height;
 
-    .maxWidth h2 {
-      // text-align: center;
+    .maxWidth h1 {
       font-size: $heading-size-lg;
-      margin-bottom: $heading-size-lg;
+      margin-bottom: $heading-size-md;
     }
   }
 
   .content {
-    gap: 2rem;
-    margin-bottom: 2rem;
-
     p {
       font-size: $body-size-lg;
     }
-  }
 
-  .emailLink {
-    font-size: $body-size-lg;
+    .emailLink {
+      font-size: $body-size-lg;
+    }
   }
 }

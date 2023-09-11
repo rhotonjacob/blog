@@ -2,22 +2,22 @@
 @import "styles/mixins.scss";
 
 $tab-count: 2;
-$tab-height: 4.5rem;
-$tab-border-radius: calc($tab-height / 2);
 $tab-width: 12.5rem;
 
 .work {
-  padding: $heading-size-sm 1rem 1rem;
+  padding: $heading-size-xs 1rem 1rem;
   width: 100%;
+  background: $color-navy;
 
   .maxWidth {
     max-width: $max-content-width;
     margin: 0 auto;
 
-    h2 {
+    h1 {
+      @include text-gradient;
       text-align: center;
       font-size: $heading-size-sm;
-      margin-bottom: $heading-size-sm;
+      margin: 0 auto $heading-size-xs;
     }
   }
 }
@@ -39,26 +39,21 @@ $tab-width: 12.5rem;
 
   .content {
     padding: 1rem;
-    background: $color-grape;
-    border-radius: 0.5rem;
+    background: $color-purple;
+    border-radius: $border-radius-sm;
     line-height: 1.25;
 
     .role {
-      color: $color-barbie;
+      color: $color-yellow;
       font-size: $heading-size-xs;
       font-weight: 600;
-
-      h3 {
-        display: block;
-        color: $color-citrus;
-      }
 
       .at {
         display: none;
       }
 
       a {
-        @include inline-link;
+        @include inline-link($color-orange);
       }
     }
 
@@ -67,8 +62,6 @@ $tab-width: 12.5rem;
     }
 
     ul {
-      font-size: $body-size-md;
-
       li {
         position: relative;
         padding-left: 2rem;
@@ -78,7 +71,7 @@ $tab-width: 12.5rem;
           content: "✧";
           position: absolute;
           left: 0;
-          color: $color-citrus;
+          color: $color-yellow;
         }
       }
     }
@@ -87,11 +80,11 @@ $tab-width: 12.5rem;
 
 @media screen and (min-width: $breakpoint-sm) {
   .work {
-    padding: $heading-size-md 1.5rem 1.5rem;
+    padding: $heading-size-sm 1.5rem 1.5rem;
 
-    .maxWidth h2 {
+    .maxWidth h1 {
       font-size: $heading-size-md;
-      margin-bottom: $heading-size-md;
+      margin-bottom: $heading-size-sm;
     }
   }
 
@@ -111,11 +104,11 @@ $tab-width: 12.5rem;
 
 @media screen and (min-width: $breakpoint-md) {
   .work {
-    padding: $heading-size-lg 2rem 2rem;
+    padding: $heading-size-md 2rem 2rem;
 
-    .maxWidth h2 {
+    .maxWidth h1 {
       font-size: $heading-size-lg;
-      margin-bottom: $heading-size-lg;
+      margin-bottom: $heading-size-md;
     }
   }
 
@@ -124,15 +117,15 @@ $tab-width: 12.5rem;
     display: grid;
     grid-template-columns: $tab-width 1fr;
     position: relative;
-    background: $color-grape;
-    border-radius: $tab-border-radius;
+    background: $color-purple;
+    border-radius: $border-radius-lg;
 
     input {
       @for $i from 1 through $tab-count {
         &:nth-of-type(#{$i}):checked {
           // active label
           ~ .tabsContainer > label:nth-child(#{$i}) {
-            color: $color-citrus;
+            color: $color-yellow;
           }
 
           // active tab indicator
@@ -153,8 +146,8 @@ $tab-width: 12.5rem;
       position: absolute;
       height: $tab-height;
       width: $tab-width;
-      background: $color-rose;
-      border-radius: $tab-border-radius 0 0 $tab-border-radius;
+      background: $color-orange;
+      border-radius: $border-radius-lg 0 0 $border-radius-lg;
       transition: 0.25s ease;
       transition-delay: 0.1s;
     }
@@ -176,7 +169,7 @@ $tab-width: 12.5rem;
         &:hover,
         &:focus,
         &:active {
-          color: $color-citrus;
+          color: $color-yellow;
         }
       }
     }
@@ -185,7 +178,7 @@ $tab-width: 12.5rem;
   .contentContainer {
     display: block;
     height: 18rem;
-    border-left: 4px solid $color-indigo;
+    border-left: 2px solid $color-navy;
 
     .content {
       display: none;

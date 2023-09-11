@@ -1,60 +1,56 @@
 @import "styles/variables.scss";
+@import "styles/mixins.scss";
+
+$gradient-offset: calc($headshot-size / 2);
 
 .about {
-  padding: $heading-size-sm 1rem 0;
+  padding: 0 1rem;
   width: 100%;
+  background: linear-gradient(
+    to bottom,
+    $color-midnight $gradient-offset,
+    $color-navy $gradient-offset
+  );
 
   .maxWidth {
     max-width: $max-content-width;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $heading-size-xs;
 
-    h2 {
-      text-align: center;
+    .headshot {
+      width: 100%;
+      max-width: $headshot-size;
+      height: $headshot-size;
+      object-fit: cover;
+      object-position: center;
+      border-radius: $border-radius-sm;
+    }
+
+    h1 {
+      @include text-gradient;
       font-size: $heading-size-sm;
-      margin-bottom: $heading-size-sm;
-    }
-  }
-}
-
-.contentContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-
-  .image {
-    width: 100%;
-    aspect-ratio: 1;
-    max-width: 400px;
-    background: $color-black;
-  }
-
-  .content {
-    line-height: 1.25;
-
-    p {
-      display: block;
-      font-size: $body-size-md;
-      margin-bottom: 0.5rem;
     }
 
-    ul {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(min-content, 10rem));
-      gap: 0.25rem;
-      list-style: none;
-      font-size: $body-size-md;
+    .content {
+      line-height: 1.25;
 
-      li {
-        position: relative;
-        padding-left: 2rem;
+      p {
+        margin-bottom: 0.5rem;
+      }
 
-        &:before {
-          content: "✧";
-          position: absolute;
-          left: 0;
-          color: $color-citrus;
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        list-style: none;
+        font-size: $body-size-sm;
+        font-weight: 600;
+
+        li {
+          @include border-gradient($color-navy);
         }
       }
     }
@@ -63,53 +59,66 @@
 
 @media screen and (min-width: $breakpoint-sm) {
   .about {
-    padding: $heading-size-md 1.5rem 0;
+    padding: 0 1.5rem;
 
-    .maxWidth h2 {
-      font-size: $heading-size-md;
-      margin-bottom: $heading-size-md;
-    }
-  }
+    .maxWidth {
+      gap: $heading-size-sm;
 
-  .contentContainer {
-    gap: 1.5rem;
+      .headshot {
+        border-radius: $border-radius-lg;
+      }
 
-    .content p:not(:last-of-type) {
-      margin-bottom: 1rem;
+      h1 {
+        font-size: $heading-size-md;
+      }
+
+      .content p:not(:last-of-type) {
+        margin-bottom: 1rem;
+      }
     }
   }
 }
 
 @media screen and (min-width: $breakpoint-md) {
   .about {
-    padding: $heading-size-lg 2rem 0;
+    padding: $heading-size-md 2rem 0;
+    background: $color-navy;
 
-    .maxWidth h2 {
-      font-size: $heading-size-lg;
-      margin-bottom: $heading-size-lg;
-    }
-  }
+    .maxWidth {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto 1fr;
+      row-gap: $heading-size-md;
+      column-gap: 2rem;
 
-  .contentContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+      .headshot {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        align-self: start;
+        justify-self: end;
+      }
 
-    .image {
-      grid-column: 2 / 3;
-      grid-row: 1 / 2;
-      justify-self: end;
-      align-self: start;
-    }
+      h1 {
+        display: block;
+        margin: 0 auto;
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+        font-size: $heading-size-lg;
+      }
 
-    .content {
-      grid-column: 1 / 2;
-      grid-row: 1 / 2;
-      justify-self: start;
-      align-self: start;
+      .content {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        align-self: start;
+        justify-self: start;
 
-      p:last-child {
-        margin-top: 1rem;
+        p {
+          font-size: $body-size-lg;
+        }
+
+        ul {
+          font-size: $body-size-md;
+        }
       }
     }
   }

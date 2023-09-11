@@ -1,24 +1,19 @@
-// $font-display: broadacre-thin-4, sans-serif;
-$font-display: broadacre-thin-3, sans-serif;
-$font-body: neue-kabel, sans-serif; /* 300, 600 */
-
-$color-white: #e6e6e6;
-$color-black: #1a1a1a;
-$color-barbie: #e8338b;
-$color-rose: #c13979;
-$color-grape: #5c2c90;
-$color-indigo: #2a2e74;
-$color-citrus: #fcac2c;
+$color-white: #ffffff;
+$color-midnight: #212d3d;
+$color-navy: #313573;
+$color-yellow: #ffd250;
+$color-orange: #f86f5d;
+$color-purple: #7861c0;
+$color-gold: #ec8f19;
 
 $body-size-sm: 0.875rem;
 $body-size-md: 1.125rem;
 $body-size-lg: 1.25rem;
-// $body-size-xl: 1.5rem;
 
-$heading-size-xs: 1.375rem;
 $heading-size-sm: 2rem;
 $heading-size-md: 3rem;
 $heading-size-lg: 4.5rem;
+$heading-size-xl: 7rem;
 
 $space-xs: 1rem;
 $space-sm: 1.5rem;
@@ -26,9 +21,16 @@ $space-md: 2rem;
 $space-lg: 3rem;
 $space-xl: 7rem;
 
-$max-content-width: 1150px;
+$max-content-width: 1050px;
 $header-footer-height: 6rem;
 
 $breakpoint-sm: 481px;
 $breakpoint-md: 769px;
 $breakpoint-lg: 1025px;
+
+$headshot-size: 25rem;
+
+// Tab Container
+$tab-height: 4.5rem;
+$border-radius-sm: 0.5rem;
+$border-radius-lg: calc($tab-height / 2);

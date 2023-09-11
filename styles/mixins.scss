@@ -1,7 +1,28 @@
 @import "styles/variables.scss";
 
-@mixin inline-link {
-  color: $color-barbie;
+@mixin text-gradient {
+  background: -webkit-linear-gradient(
+    45deg,
+    $color-purple,
+    $color-orange,
+    $color-yellow
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: max-content;
+}
+
+@mixin border-gradient($background) {
+  background: linear-gradient($background, $background) padding-box,
+    linear-gradient(45deg, $color-purple, $color-orange, $color-yellow)
+      border-box;
+  border-radius: 100px;
+  border: 2px solid transparent;
+  padding: 0.5rem 1rem;
+}
+
+@mixin inline-link($color) {
+  color: $color;
   text-decoration: none;
   position: relative;
 
@@ -10,7 +31,7 @@
     position: absolute;
     width: 100%;
     height: 2px;
-    background: $color-barbie;
+    background: $color;
     bottom: 0;
     left: 0;
     transform-origin: left;
@@ -22,19 +43,3 @@
     transform: scaleX(1);
   }
 }
-
-// @mixin button-link {
-//   text-decoration: none;
-//   font-size: $body-size-md;
-//   color: $color-white;
-//   border: 2px solid $color-white;
-//   border-radius: 10px;
-//   width: max-content;
-//   padding: $space-xs;
-
-// }
-
-// @mixin font-body($weight: 300) {
-//   font-family: neue-kabel, sans-serif;
-//   font-weight: $weight;
-// }

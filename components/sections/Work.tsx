@@ -6,7 +6,7 @@ const Work = () => {
   return (
     <section className={style.work}>
       <div className={style.maxWidth}>
-        <h2>Experience</h2>
+        <h1>My Experience</h1>
         <div className={style.wrapper}>
           <input type="radio" id="tab1" name="tab" defaultChecked />
           <input type="radio" id="tab2" name="tab" />

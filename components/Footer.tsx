@@ -8,10 +8,15 @@ const Footer = () => (
     <div className={style.maxWidth}>
       <div className={style.socials}>
         <a href="https://github.com/rhotonjacob" target="_blank">
-          <IconGitHub />
+          {/* <IconGitHub /> */}
+          GitHub
         </a>
         <a href="https://www.linkedin.com/in/jacobrhoton" target="_blank">
-          <IconLinkedIn />
+          {/* <IconLinkedIn /> */}
+          LinkedIn
+        </a>
+        <a href="mailto:rhoton.jacob@gmail.com" target="_blank">
+          Email
         </a>
       </div>
       <p>&copy; Jacob Rhoton 2023</p>

@@ -1,4 +1,5 @@
 @import "styles/variables.scss";
+@import "styles/mixins.scss";
 
 .footer {
   position: absolute;
@@ -12,35 +13,23 @@
     height: $header-footer-height;
     max-width: $max-content-width;
     margin: 0 auto;
-    padding: 1rem 0;
     border-top: 2px solid $color-white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-
-    p {
-      font-size: $body-size-sm;
-    }
+    justify-content: center;
+    gap: 1rem;
   }
 }
 
 .socials {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 
   a {
-    // &:hover,
-    // &:focus {
-    //   transform: translateY(-3px);
-    // }
-
-    svg {
-      height: 40px;
-      width: 40px;
-      color: $color-white;
-    }
+    @include inline-link($color-white);
+    letter-spacing: 1px;
+    font-size: $body-size-md;
   }
 }
 
